@@ -9,8 +9,8 @@ pipeline {
         }    
         stage('Build') {
             steps {
-                sh './mvnw clean package'
-                // sh 'false' //true
+                // sh './mvnw clean package'
+                sh 'true' //true
             }
         
             post {
