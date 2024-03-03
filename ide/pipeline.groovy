@@ -1,15 +1,15 @@
 pipeline {
     agent any
-
+    triggers { pollSCM('* * * * *') }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/sbarissonmez/jgsu-spring-petclinic.git'
+                git url: 'https://github.com/sbarissonmez/jgsu-spring-petclinic.git', branch: 'main'
             }
         }    
         stage('Build') {
             steps {
-                sh './mvnw clean compile'
+                sh './mvnw clean package'
             }
         
             post {
